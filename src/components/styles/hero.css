@@ -1,0 +1,34 @@
+.hero-section{
+    align-items: center;
+    text-align: left;
+}
+
+.hero-img{
+    max-width: 100%;
+}
+
+.hero-text{
+    position: absolute;
+    top: 50%;
+    color: white;
+    padding-left: 13%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.hero-title{
+    font-size: 10vh;
+    font-weight: 800;
+}
+
+.hero-button{
+    background-color: black;
+    height: 50px;
+    width: 150px;
+    padding: 5px;
+    border-radius: 25px;
+    color: white;
+    font-weight: 400;
+    cursor: pointer;
+}

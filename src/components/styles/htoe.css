@@ -1,0 +1,52 @@
+.htoe-section{
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    max-width: 100%;
+}
+
+.htoe-img{
+    /* image 12 */
+
+    position: absolute;
+    width: 468px;
+    height: 485px;
+    left: 0px;
+
+
+}
+
+.htoe-text{
+    left: 469px;
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 50px;
+    position: relative;
+    height: 486px;
+    max-width: 67%;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.htoe-title{
+    font-size: 8vh;
+    font-weight: 500;
+}
+
+.htoe-desc{
+    padding-right: 50px;
+}
+
+.htoe-button{
+    background-color: black;
+    height: 50px;
+    width: 200px;
+    padding: 5px;
+    border-radius: 25px;
+    color: white;
+    font-size: medium;
+    font-weight: 400;
+    cursor: pointer;
+}
