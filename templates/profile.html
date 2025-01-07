@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <div class="profile-container">
+      <h2 class="profile-heading">{{ session.username }}'s Profile</h2>
+
+      <!-- Display subscribed event count -->
+      <div class="subscription-counts">
+          <p><strong>Total Events Subscribed:</strong> {{ event_count }}</p>
+          <p><strong>Total Courses Subscribed:</strong> {{ course_count }}</p>
+      </div>
+
+      <div class="subscribed-section">
+          <h3 class="subscribed-heading">Your Subscribed Events</h3>
+          {% if subscribed_events %}
+              <ul class="event-list">
+                  {% for event in subscribed_events %}
+                      <li class="event-item">
+                          <h4 class="event-title">{{ event.name }}</h4>
+                          <p class="event-detail">Date: {{ event.date }}</p>
+                          <p class="event-detail">Location: {{ event.location }}</p>
+                          <div class="event-img-container">
+                              <img src="{{ event.img_url }}" alt="{{ event.name }}" class="event-img">
+                          </div>
+                      </li>
+                  {% endfor %}
+              </ul>
+          {% else %}
+              <p class="no-subscription-message">You have not subscribed to any events yet.</p>
+          {% endif %}
+      </div>
+
+      <div class="subscribed-section">
+          <h3 class="subscribed-heading">Your Subscribed Courses</h3>
+          {% if subscribed_courses %}
+              <ul class="course-list">
+                  {% for course in subscribed_courses %}
+                      <li class="course-item">
+                          <h4 class="course-title">{{ course.title }}</h4>
+                          <a href="{{ course.course_url }}" target="_blank" class="course-link">Course Link</a>
+                      </li>
+                  {% endfor %}
+              </ul>
+          {% else %}
+              <p class="no-subscription-message">You have not subscribed to any courses yet.</p>
+          {% endif %}
+      </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SSTS - Landing Page</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <!-- Navbar Section -->
+  <header class="navbar-section">
+    <div class="navbar-logo">SSTS</div>
+    <nav class="navbar-components">
+      <a href="{{ url_for('home') }}" class="nav-link nav-link-active">Home</a>
+      <a href="{{ url_for('events') }}" class="nav-link">Events</a>
+      <a href="{{ url_for('courses') }}" class="nav-link">Courses</a>
+      <!--<a href="{{ url_for('profile') }}" class="nav-link">My Profile</a>-->
+      
+      {% if session.username %}
+        {% if session.role != 'admin' %}
+          <a href="{{ url_for('profile') }}" class="nav-link">My Profile</a>
+        {% endif %}
+        <a href="{{ url_for('logout') }}" class="nav-link">Logout</a>
+
+      {% else %}
+        <a href="{{ url_for('login') }}" class="nav-link">Login</a>
+      {% endif %}
+      </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <img class="hero-img" alt="Hero Image" src="{{ url_for('static', filename='assets/heroImage.jpg') }}"/>
+    <div class="hero-text">
+      <div class="hero-title">Empower Your Learning Journey</div>
+      <div class="hero-desc">Track your skills, set goals, and see your progress. Achieve more with a tool designed to help you grow!</div>
+      <a href="{{ url_for('login') }}"><button class="hero-button">GET STARTED</button></a>
+    </div>
+  </section>
+
+  <!-- Events Section (HToE) -->
+  <section class="htoe-section">
+    <div class="htoe-img">
+      <img alt="Events Image" class="htoe-img" src="{{ url_for('static', filename='assets/htoeImg.png') }}"/>
+    </div>
+    <div class="htoe-text">
+      <div class="htoe-title">Unleash Your Potential with Exciting Events!</div>
+      <div class="htoe-desc">Ready to put your skills to the test and learn something new? Dive into hands-on experiences with the latest events — from hackathons and workshops to quizzes and ideathons!</div>
+      <a href="{{ url_for('events') }}"><button class="htoe-button">EXPLORE EVENTS</button></a>
+    </div>
+  </section>
+
+  <!-- Courses Section (HToC) -->
+  <section class="htoc-section">
+    <div class="htoc-text">
+      <div class="htoc-title">Level Up with Expert-Led Courses!</div>
+      <div class="htoc-desc">Take charge of your learning journey with courses designed to boost your skills and confidence. Join today and make every lesson count toward your success!</div>
+      <a href="{{ url_for('courses') }}"><button class="htoc-button">BROWSE COURSES</button></a>
+    </div>
+    <div class="htoc-img">
+      <img alt="Courses Image" class="htoc-img" src="{{ url_for('static', filename='assets/htocImg.png') }}"/>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2024 SSTS. All Rights Reserved.</p>
+  </footer>
+</body>
+</html>

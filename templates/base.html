@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}SSTS{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <!-- Navbar Section -->
+    <header class="navbar-section">
+        <div class="navbar-logo">SSTS</div>
+        <nav class="navbar-components">
+            <a href="{{ url_for('home') }}" class="nav-link">Home</a>
+            <a href="{{ url_for('events') }}" class="nav-link {% if request.endpoint == 'events' %}nav-link-active{% endif %}">Events</a>
+            <a href="{{ url_for('courses') }}" class="nav-link {% if request.endpoint == 'courses' %}nav-link-active{% endif %}">Courses</a>
+
+            {% if session.username %}
+                {% if session.role != 'admin' %}
+                    <a href="{{ url_for('profile') }}" class="nav-link {% if request.endpoint == 'profile' %}nav-link-active{% endif %}">My Profile</a>
+                {% endif %}
+                <div class="dropdown">
+                        <a href="{{ url_for('logout') }}"><button class="btn dropdown-btn">Logout</button></a>
+                        
+                    </div>
+                </div>
+            {% else %}
+            {% if request.endpoint != 'login' %}
+                <a href="{{ url_for('login') }}" class="nav-link">Login</a>
+            {% endif %}
+
+            <!-- Show "Sign Up" if not on the signup page -->
+            {% if request.endpoint != 'signup' %}
+                <a href="{{ url_for('signup') }}" class="nav-link">Sign Up</a>
+            {% endif %}>
+            {% endif %}
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 SSTS. All Rights Reserved.</p>
+    </footer>
+
+    
+</body>
+</html>

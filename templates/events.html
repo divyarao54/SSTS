@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+
+{% block title %}Events{% endblock %}
+
+{% block content %}
+    <div class="container event-container">
+        <h1 class="section-title">Events</h1>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+          {% if messages %}
+            <div class="flash-messages">
+              {% for category, message in messages %}
+                <div class="flash-message {{ category }}">{{ message }}</div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        {% endwith %}
+
+        {% if is_admin %}
+        <h3 class="form-title">Add New Event</h3>
+        <form method="POST" action="{{ url_for('events') }}" class="form">
+            <label for="event_name">Event Name</label>
+            <input type="text" id="event_name" name="event_name" required><br>
+
+            <label for="event_date">Event Date</label>
+            <input type="date" id="event_date" name="event_date" required><br>
+            
+            <label for="event_location">Event Location</label>
+            <input type="text" id="event_location" name="event_location" required><br>
+            
+            <label for="event_img_url">Event Image URL</label>
+            <input type="url" id="event_img_url" name="img_url" required><br>
+
+            <input type="submit" value="Add Event" class="btn submit-btn">
+        </form>
+        {% endif %}
+
+        <h3 class="section-subtitle">Upcoming Events</h3>
+        <ul class="event-list">
+            {% for event in events %}
+            <li class="event-item">
+                <h3 class="event-title">{{ event.name }}</h3>
+                <p class="event-details"><strong>Date:</strong> {{ event.date }}</p>
+                <p class="event-details"><strong>Location:</strong> {{ event.location }}</p>
+                
+                {% if event.img_url %}
+                    <div class="event-image">
+                        <img src="{{ event.img_url }}" alt="{{ event.name }}" class="event-thumbnail">
+                    </div>
+                {% endif %}
+
+                {% if not is_admin %}
+                    <!-- Show Join Now button for all users, even if subscribed -->
+                    <form method="POST" action="{{ url_for('subscribe_event', event_id=event.id) }}" style="display:inline;">
+                        <button type="submit" class="btn event-btn">
+                            {% if event.is_subscribed %}
+                                Already Subscribed
+                            {% else %}
+                                Join Now
+                            {% endif %}
+                        </button>
+                    </form>
+                {% endif %}
+
+                {% if is_admin %}
+                <!-- Delete button for admins -->
+                <form method="POST" action="{{ url_for('delete_event') }}" style="display:inline;">
+                    <input type="hidden" name="event_id" value="{{ event.id }}">
+                    <button type="submit" class="btn delete-btn">Delete</button>
+                </form>
+                {% endif %}
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+{% endblock %}

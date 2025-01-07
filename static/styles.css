@@ -1,0 +1,577 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header styles */
+header {
+    background: #4CAF50;
+    color: #fff;
+    padding: 15px 20px;
+    text-align: center;
+}
+
+/* Navbar Styles */
+.navbar-section {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 100px;
+    background-color: #ffffff;
+}
+
+.navbar-logo {
+    font-weight: 700;
+    font-size: larger;
+    color: black;
+}
+
+.navbar-components {
+    display: flex;
+    gap: 50px;
+}
+
+.nav-link {
+    text-decoration: none;
+    color: black;
+}
+
+.nav-link-active {
+    color: black;
+    text-decoration: underline;
+    font-weight: 500;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+    text-align: left;
+}
+
+.hero-img {
+    max-width: 100%;
+    height: auto;
+}
+
+.hero-text {
+    position: absolute;
+    top: 50%;
+    left: 13%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    transform: translateY(-50%);
+}
+
+.hero-title {
+    font-size: 9vh;
+    font-weight: 800;
+}
+
+.hero-button {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 30px;
+    font-size: medium;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.hero-button:hover {
+    background-color: #555;
+}
+
+/* Events Section (HToE) */
+.htoe-section {
+    display: flex;
+    align-items: center;
+    padding: 50px;
+    gap: 50px;
+}
+
+.htoe-img {
+    width: 468px;
+    height: 485px;
+}
+
+.htoe-text {
+    max-width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    text-align: left;
+}
+
+.htoe-title {
+    font-size: 8vh;
+    font-weight: 500;
+}
+
+.htoe-desc {
+    font-size: medium;
+}
+
+.htoe-button {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 30px;
+    font-size: medium;
+    cursor: pointer;
+}
+
+/* Courses Section (HToC) */
+.htoc-section {
+    display: flex;
+    align-items: center;
+    padding: 50px;
+    gap: 50px;
+    flex-direction: row;
+}
+
+.htoc-img {
+    width: 468px;
+    height: 485px;
+}
+
+.htoc-text {
+    max-width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    text-align: left;
+}
+
+.htoc-title {
+    font-size: 8vh;
+    font-weight: 500;
+}
+
+.htoc-desc {
+    font-size: medium;
+}
+
+.htoc-button {
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    padding: 10px 30px;
+    font-size: medium;
+    cursor: pointer;
+}
+
+/* Events & Courses Container Styles */
+.event-container, .course-container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.section-title {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+    color: #333;
+}
+
+.section-subtitle {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-top: 30px;
+    margin-bottom: 10px;
+}
+
+/* Form Styles */
+.form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 30px;
+}
+
+.form label {
+    font-weight: bold;
+    margin-bottom: 5px;
+    display: inline-block;
+}
+
+.form input[type="text"],
+.form input[type="url"],
+.form input[type="date"] {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btn {
+    padding: 10px 20px;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.submit-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.submit-btn:hover {
+    background-color: #45a049;
+}
+
+.event-btn, .course-btn {
+    background-color: #007BFF;
+    color: white;
+}
+
+.event-btn:hover, .course-btn:hover {
+    background-color: #0056b3;
+}
+
+.delete-btn {
+    background-color: #FF4C4C;
+    color: white;
+}
+
+.delete-btn:hover {
+    background-color: #cc0000;
+}
+
+/* Events List Section */
+.event-list {
+    list-style: none;
+    padding: 0;
+}
+
+.event-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.event-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+.event-details {
+    font-size: 0.9em;
+    color: #666;
+}
+
+.event-image {
+    margin: 10px 0;
+    text-align: center;
+}
+
+.event-thumbnail {
+    max-width: 100px;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* Courses List Section */
+.course-list {
+    list-style: none;
+    padding: 0;
+}
+
+.course-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.course-title {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+}
+
+/* Footer styles */
+footer {
+    text-align: center;
+    padding: 20px;
+    background: #333;
+    color: white;
+    width: 100%;
+}
+
+/* Error message styles */
+.error {
+    color: red;
+    text-align: center;
+    margin: 10px 0;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .hero-text {
+        left: 10%;
+        width: 80%;
+    }
+
+    .hero-title {
+        font-size: 5vh;
+    }
+
+    .htoe-section,
+    .htoc-section {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .htoe-img,
+    .htoc-img {
+        width: 100%;
+        height: auto;
+    }
+}
+
+.login-signup-container, 
+.forgot-pswd-container,
+.reset-pswd-container {
+    max-width: 400px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Heading Styles */
+.login-heading,
+.signup-heading,
+.forgot-pswd-heading,
+.reset-pswd-heading {
+    font-size: 2em;
+    text-align: center;
+    color: /*#4CAF50*/black;
+    margin-bottom: 20px;
+}
+
+/* Input Label Styles */
+.login-input,
+.signup-input,
+.forgot-pswd-input,
+.reset-pswd-input {
+    display: block;
+    font-size: 1em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.login-input input,
+.signup-input input,
+.forgot-pswd-input input,
+.reset-pswd-input input {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 1em;
+}
+
+/* Button Styles */
+.login-btn,
+.signup-btn,
+.forgot-pswd-btn,
+.reset-pswd-btn {
+    display: block;
+    width: 100%;
+    background-color: /*#4CAF50*/black;
+    color: white;
+    padding: 12px;
+    font-size: 1em;
+    font-weight: bold;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 20px;
+    transition: background-color 0.3s ease;
+}
+
+.login-btn:hover,
+.signup-btn:hover,
+.forgot-pswd-btn:hover,
+.reset-pswd-btn:hover {
+    background-color: /*#45a049*/black;
+}
+
+/* Link to Switch Between Login and Signup */
+.login-signup-link {
+    text-align: center;
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #666;
+}
+
+.login-signup-link a {
+    color: #007BFF;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.login-signup-link a:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Profile Page Styles */
+
+.profile-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.profile-heading {
+    font-size: 2em;
+    text-align: center;
+    color: /*#4CAF50*/ black;
+    margin-bottom: 20px;
+}
+
+/* Subscribed Sections */
+.subscribed-section {
+    margin-top: 30px;
+}
+
+.subscribed-heading {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 15px;
+}
+
+/* Event List Styles */
+.event-list,
+.course-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.event-item,
+.course-item {
+    border: 1px solid #ddd;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.event-title,
+.course-title {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.event-detail {
+    font-size: 0.9em;
+    color: #666;
+    margin: 5px 0;
+}
+
+/* Event Image */
+.event-img-container {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.event-img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+/* Course Link */
+.course-link {
+    font-size: 1em;
+    color: #007BFF;
+    text-decoration: none;
+}
+
+.course-link:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* No Subscription Message */
+.no-subscription-message {
+    color: #666;
+    font-style: italic;
+    margin-top: 10px;
+    text-align: center;
+}
+
+.flash-messages {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    z-index: 1000;
+    max-width: 300px;
+}
+
+.flash-message {
+    padding: 15px 20px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    opacity: 0;
+    animation: fadeIn 0.5s forwards;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.flash-message.success {
+    background-color: #4CAF50;
+}
+
+.flash-message.error {
+    background-color: #f44336;
+}
+
+.flash-message .icon {
+    margin-right: 10px;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
